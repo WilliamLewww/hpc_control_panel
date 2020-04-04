@@ -1,0 +1,1 @@
+ssh -t wlew@192.168.0.21 "watch --interval 1 nvidia-smi"
