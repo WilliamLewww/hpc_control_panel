@@ -36,7 +36,7 @@ def main():
     if sys.argv[1] == "on":
       GPIO.setup(right_relay, GPIO.OUT, initial=GPIO.LOW)
     if sys.argv[1] == "off":
-      GPIO.setup(right_relay, GPIO.OUT, initial=GPIO.HIGH)
+      GPIO.cleanup()
 
 if __name__ == '__main__':
     main()
