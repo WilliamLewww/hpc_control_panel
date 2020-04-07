@@ -21,6 +21,7 @@
 
 import RPi.GPIO as GPIO
 import time
+import sys
 
 # Pin Definitions
 left_relay = 17  # BOARD pin 3, BCM pin 11
@@ -32,7 +33,10 @@ def main():
     GPIO.setmode(GPIO.BCM)
     # set pin as an output pin with optional initial state of HIGH
     # GPIO.setup(left_relay, GPIO.OUT, initial=GPIO.LOW)
-    GPIO.setup(right_relay, GPIO.OUT, initial=GPIO.LOW)
+    if sys.argv[1] == "on":
+      GPIO.setup(right_relay, GPIO.OUT, initial=GPIO.LOW)
+    if sys.argv[1] == "off":
+      GPIO.setup(right_relay, GPIO.OUT, initial=GPIO.HIGH)
 
 if __name__ == '__main__':
     main()
