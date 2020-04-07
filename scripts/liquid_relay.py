@@ -21,22 +21,20 @@
 
 import RPi.GPIO as GPIO
 import time
-import sys
 
 # Pin Definitions
 left_relay = 17  # BOARD pin 3, BCM pin 11
 right_relay = 18 # BOARD pin 5, BCM pin 12
 
 def main():
-    # Pin Setup:
-    # Board pin-numbering scheme
     GPIO.setmode(GPIO.BCM)
-    # set pin as an output pin with optional initial state of HIGH
-    # GPIO.setup(left_relay, GPIO.OUT, initial=GPIO.LOW)
-    if sys.argv[1] == "on":
+
+    try:
       GPIO.setup(right_relay, GPIO.OUT, initial=GPIO.LOW)
-    if sys.argv[1] == "off":
-      GPIO.cleanup()
+      while(True):
+        continue
+    except KeyboardInterrupt:
+      GPIO.cleanup()    
 
 if __name__ == '__main__':
     main()
